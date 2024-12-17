@@ -90,7 +90,7 @@ import dj_database_url
 import os
 
 
-DATABASE_URL = "Postgres.DATABASE_URL"
+DATABASE_URL = "Postgres://https://railway.app/project/05edf2f9-db0d-4b52-8c52-dffc9408fe2a?environmentId=f0700d31-0fa5-4b70-b115-440b29f8d8ac"
 if DATABASE_URL:
     DATABASES = {
         'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
