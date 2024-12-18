@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +21,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-v3kw7&l%f^#ib)6awwv%$-d1(r8(^_x4b(hx3hw8m+(%%-a5rk'
+TOKEN_CSRF = os.getenv('TOKEN_CSR')
+if TOKEN_CSRF:
+    SECRET_KEY = TOKEN_CSRF
+    CSRF_TRUSTED_ORIGINS = ['https://projetocelloflixdjango-production.up.railway.app']
+else:
+    SECRET_KEY = 'django-insecure-v3kw7&l%f^#ib)6awwv%$-d1(r8(^_x4b(hx3hw8m+(%%-a5rk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://projetocelloflixdjango-production.up.railway.app/", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -87,7 +93,7 @@ DATABASES = {
 }
 
 import dj_database_url
-import os
+
 
 
 DATABASE_URL = 'postgresql://postgres:EWOVHrqCMFuoTBcrpOmfyLNQswmLWrbj@postgres.railway.internal:5432/railway'
