@@ -94,9 +94,7 @@ DATABASES = {
 
 import dj_database_url
 
-
-
-DATABASE_URL = 'postgresql://postgres:EWOVHrqCMFuoTBcrpOmfyLNQswmLWrbj@postgres.railway.internal:5432/railway'
+DATABASE_URL = 'postgresql://postgres:EWOVHrqCMFuoTBcrpOmfyLNQswmLWrbj@autorack.proxy.rlwy.net:40219/railway'
 if DATABASE_URL:
     DATABASES = {
         'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
