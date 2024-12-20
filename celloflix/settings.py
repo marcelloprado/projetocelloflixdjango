@@ -29,10 +29,9 @@ else:
     SECRET_KEY = 'django-insecure-v3kw7&l%f^#ib)6awwv%$-d1(r8(^_x4b(hx3hw8m+(%%-a5rk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["projetocelloflixdjango-production.up.railway.app", "localhost", "127.0.0.1"]
-# "projetocelloflixdjango-production.up.railway.app", "localhost", "127.0.0.1"
 
 # Application definition
 
@@ -50,7 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -94,7 +93,7 @@ DATABASES = {
 
 import dj_database_url
 
-DATABASE_URL = 'postgresql://postgres:EWOVHrqCMFuoTBcrpOmfyLNQswmLWrbj@autorack.proxy.rlwy.net:40219/railway'
+DATABASE_URL = 'postgresql://postgres:EWOVHrqCMFuoTBcrpOmfyLNQswmLWrbj@postgres.railway.internal:5432/railway'
 if DATABASE_URL:
     DATABASES = {
         'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1800)
@@ -140,8 +139,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 STATICFILES_DIRS = [
